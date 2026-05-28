@@ -25,7 +25,7 @@ export default function Crear() {
       body: formData,
     };
 
-    fetch("http://localhost:3000/proyectos", requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/proyectos`, requestOptions)
       .then((response) => response.json())
       .then((result) => setProyecto(result))
       .catch((error) => console.log(error));

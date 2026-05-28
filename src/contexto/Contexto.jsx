@@ -15,7 +15,7 @@ export const Provider = ({ children }) => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:3000/escuelas")
+    fetch(`${import.meta.env.VITE_API_URL}/escuelas`)
       .then((response) => response.json())
       .then((result) => {
         // console.log(result);
@@ -30,7 +30,7 @@ export const Provider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/proyectos")
+    fetch(`${import.meta.env.VITE_API_URL}/proyectos`)
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);

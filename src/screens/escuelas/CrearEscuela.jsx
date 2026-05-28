@@ -38,7 +38,7 @@ export const CrearEscuela = () => {
       body: formData,
     };
 
-    fetch("http://localhost:3000/escuelas", requestOptions)
+    fetch(`${import.meta.env.VITE_API_URL}/escuelas`, requestOptions)
       .then((response) => response.json())
       .then((result) => setEscuela(result))
       .catch((error) => console.error(error));
