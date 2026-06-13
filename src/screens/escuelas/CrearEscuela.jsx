@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 export const CrearEscuela = () => {
-
   const [nombre, setNombre] = useState("");
-  const [region, setRegion] = useState("");
+  const [region_id, setRegionId] = useState("");
   const [localidad, setLocalidad] = useState("");
   const [padron, setPadron] = useState("");
   const [error, setError] = useState("");
@@ -12,8 +11,7 @@ export const CrearEscuela = () => {
   const [image, setImage] = useState(null);
 
   const crearEscuela = () => {
-
-    if (!nombre || !region || !localidad || !padron) {
+    if (!nombre || !region_id || !localidad || !padron) {
       setError("Faltan datos");
       return;
     }
@@ -29,7 +27,7 @@ export const CrearEscuela = () => {
 
     formData.append("nombre", nombre);
     formData.append("padron", padron);
-    formData.append("region_id", region);
+    formData.append("region_id", region_id);
     formData.append("localidad", localidad);
     formData.append("logo", image);
 
@@ -45,7 +43,6 @@ export const CrearEscuela = () => {
   };
 
   const cargarArchivo = (e) => {
-
     const file = e.target.files?.[0];
 
     console.log(file);
@@ -59,21 +56,15 @@ export const CrearEscuela = () => {
   };
 
   return (
-
     <div className="min-h-screen bg-slate-100 flex items-center justify-center p-6">
-
       <div className="w-full max-w-2xl bg-white rounded-3xl shadow-xl p-8">
-
-        <h2 className="text-4xl font-bold text-teal-700 mb-2">
-          Crear Escuela
-        </h2>
+        <h2 className="text-4xl font-bold text-teal-700 mb-2">Crear Escuela</h2>
 
         <p className="text-gray-500 mb-8">
           Registrá una nueva escuela participante.
         </p>
 
         <div className="flex flex-col gap-5">
-
           <input
             type="text"
             name="nombre"
@@ -92,14 +83,17 @@ export const CrearEscuela = () => {
             className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-teal-500"
           />
 
-          <input
-            type="text"
-            name="region"
-            placeholder="Región"
-            value={region}
-            onChange={(e) => setRegion(e.target.value)}
+          <select
+            value={region_id}
+            onChange={(e) => setRegionId(e.target.value)}
             className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-teal-500"
-          />
+          >
+            <option value="">Seleccione una región</option>
+            <option value="1">Región I</option>
+            <option value="2">Región II</option>
+            <option value="3">Región III</option>
+            <option value="4">Región IV</option>
+          </select>
 
           <input
             type="text"
@@ -111,7 +105,6 @@ export const CrearEscuela = () => {
           />
 
           <div className="border-2 border-dashed border-teal-300 rounded-2xl p-6 bg-teal-50">
-
             <p className="text-gray-600 text-sm mb-4">
               Subí el logo o imagen de la escuela
             </p>
@@ -130,7 +123,6 @@ export const CrearEscuela = () => {
                 </span>
               </div>
             )}
-
           </div>
 
           {error && (
@@ -145,7 +137,6 @@ export const CrearEscuela = () => {
           >
             Crear Escuela
           </button>
-
         </div>
 
         {escuela?.id && (
@@ -153,9 +144,7 @@ export const CrearEscuela = () => {
             Escuela creada correctamente
           </div>
         )}
-
       </div>
-
     </div>
   );
 };
