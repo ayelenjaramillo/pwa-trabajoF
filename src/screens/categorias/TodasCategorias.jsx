@@ -6,7 +6,7 @@ const TodasCategorias = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:3000/categorias")
+    fetch(`${import.meta.env.VITE_API_URL}/categorias`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
