@@ -9,15 +9,15 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/sw.js", {
-        scope: "/",
-      })
-      .then((reg) =>
-        console.log("service worker registrado, scope: ", reg.scope)
-      )
-      .catch((err) => console.error("fallo servicio de serv worker:", err));
-  });
-}
+// if ("serviceWorker" in navigator) {
+//   window.addEventListener("load", () => {
+//     navigator.serviceWorker
+//       .register("/sw.js", {
+//         scope: "/",
+//       })
+//       .then((reg) =>
+//         console.log("service worker registrado, scope: ", reg.scope)
+//       )
+//       .catch((err) => console.error("fallo servicio de serv worker:", err));
+//   });
+// }
