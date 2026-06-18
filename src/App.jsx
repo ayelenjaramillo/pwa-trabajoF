@@ -10,6 +10,7 @@ import { Navbar } from "./screens/Navbar";
 import TodasCategorias from "./screens/categorias/TodasCategorias";
 import Proyecto from "./screens/proyectos/Proyecto";
 
+
 function App() {
   return (
     <>

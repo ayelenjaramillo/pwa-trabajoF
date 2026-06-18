@@ -7,6 +7,12 @@ export default function Todos() {
 
   return (
     <div className="p-6">
+      <Link
+        to="/crear-proyecto"
+        className="inline-block mb-6 bg-teal-600 text-white px-4 py-2 rounded-lg"
+      >
+        Crear Proyecto
+      </Link>
       <h2 className="text-3xl font-bold mb-6">Proyectos</h2>
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
