@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEscuelaContext } from "../../contexto/Contexto";
+import { CardProyecto } from "../../componentes/CardProyecto";
 
 export default function Todos() {
   const { proyectos } = useEscuelaContext();
@@ -13,23 +14,17 @@ export default function Todos() {
       >
         Crear Proyecto
       </Link>
-      <h2 className="text-3xl font-bold mb-6">Proyectos</h2>
+
+      <h2 className="text-3xl font-bold mb-6">
+        Proyectos
+      </h2>
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {proyectos.map((pr) => (
-          <Link
+          <CardProyecto
             key={pr.id}
-            to={`/proyectos/${pr.id}`}
-            className="block bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
-          >
-            <div className="p-5">
-              <span className="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                {pr.categoria?.nombre}
-              </span>
-
-              <h3 className="text-xl font-bold text-gray-800">{pr.titulo}</h3>
-            </div>
-          </Link>
+            proyecto={pr}
+          />
         ))}
       </div>
     </div>

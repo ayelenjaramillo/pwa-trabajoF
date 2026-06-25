@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexto/AuthContexto";
 
 export const Navbar = () => {
 
   const [open, setOpen] = useState(false);
+  const { usuario, logout } = useAuth();
 
   return (
     <nav className="bg-teal-700 text-white shadow-md">
@@ -37,14 +39,31 @@ export const Navbar = () => {
             <Link to="/proyectos">Proyectos</Link>
           </li>
 
-          <li>
-            <Link
-              className="bg-white text-teal-700 px-4 py-2 rounded-xl"
-              to="/login"
-            >
-              Iniciar sesión
-            </Link>
-          </li>
+          {usuario ? (
+  <>
+    <li>
+      Hola, {usuario.nombre}
+    </li>
+
+    <li>
+      <button
+        onClick={logout}
+        className="bg-white text-teal-700 px-4 py-2 rounded-xl"
+      >
+        Cerrar sesión
+      </button>
+    </li>
+  </>
+) : (
+  <li>
+    <Link
+      className="bg-white text-teal-700 px-4 py-2 rounded-xl"
+      to="/login"
+    >
+      Iniciar sesión
+    </Link>
+  </li>
+)}
 
         </ul>
       </div>
